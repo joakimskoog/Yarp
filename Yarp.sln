@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarp.Plugins.Api", "Yarp.Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarp.Plugins", "Yarp.Plugins\Yarp.Plugins.csproj", "{ADA85D8D-7F5D-4AE9-A9C8-1FEA52D5D344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3837E1B5-CC4C-4B71-8D2C-475DAEA5DFC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarp.Plugins.UnitTests", "Yarp.Plugins.UnitTests\Yarp.Plugins.UnitTests.csproj", "{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{ADA85D8D-7F5D-4AE9-A9C8-1FEA52D5D344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA85D8D-7F5D-4AE9-A9C8-1FEA52D5D344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA85D8D-7F5D-4AE9-A9C8-1FEA52D5D344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD4EBE84-7D5D-45D4-B614-50DD6C05CA3B} = {3837E1B5-CC4C-4B71-8D2C-475DAEA5DFC4}
 	EndGlobalSection
 EndGlobal

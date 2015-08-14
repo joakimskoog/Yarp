@@ -36,12 +36,12 @@ namespace Yarp.Plugins
         /// <summary>
         /// Retrieves the plugin along with its metadata with the given id.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        YarpPluginContainer GetPluginById(string name);
+        YarpPluginContainer GetPluginById(string id);
 
         /// <summary>
-        /// Forces all the plugins to be loaded. If this is not called the plugins will be lazy loaded (loaded upon need).
+        /// Loads the available plugins.
         /// </summary>
         void LoadPlugins();
     }

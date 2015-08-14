@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultPluginManager.cs" />
     <Compile Include="IPluginLoader.cs" />
     <Compile Include="IPluginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionBasedPluginLoader.cs" />
     <Compile Include="YarpPluginContainer.cs" />
   </ItemGroup>
   <ItemGroup>
