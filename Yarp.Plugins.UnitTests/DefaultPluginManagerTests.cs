@@ -115,7 +115,7 @@ namespace Yarp.Plugins.UnitTests
             sut.PluginLoader = pluginLoaderStub;
 
             sut.LoadPlugins();
-            var plugin = sut.GetPluginById("id");
+            var plugin = sut.GetPluginById("faultyId");
         }
 
         [TestMethod]
