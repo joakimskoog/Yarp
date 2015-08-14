@@ -84,16 +84,67 @@ namespace Yarp.Plugins.UnitTests
             sut.LoadPlugins();
             var plugin = sut.GetPluginByName("testName");
 
-            Assert.AreEqual(existingPlugin.Metadata.Id, plugin.Metadata.Id);
-            Assert.AreEqual(existingPlugin.Metadata.Name, plugin.Metadata.Name);
-            Assert.AreEqual(existingPlugin.Metadata.Author, plugin.Metadata.Author);
-            Assert.AreEqual(existingPlugin.Metadata.Description, plugin.Metadata.Description);
-            Assert.AreEqual(existingPlugin.Metadata.Version, plugin.Metadata.Version);
-            Assert.AreEqual(existingPlugin.Metadata.Category, plugin.Metadata.Category);
-            Assert.AreEqual(existingPlugin.Metadata.Website, plugin.Metadata.Website);
+            Assert.IsTrue(ArePluginMetadatasEqual(existingPlugin.Metadata, plugin.Metadata));
         }
 
         #endregion
+
+        #region GetPluginById
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void GivenThatNoPluginsExists_WhenGetPluginByIdIsCalled_ThenAnExceptionIsThrown()
+        {
+            var sut = new DefaultPluginManager();
+            var pluginLoaderStub = MockRepository.GenerateStub<IPluginLoader>();
+            pluginLoaderStub.Stub(x => x.LoadPlugins()).Return(Enumerable.Empty<YarpPluginContainer>());
+            sut.PluginLoader = pluginLoaderStub;
+
+            sut.LoadPlugins();
+            var plugin = sut.GetPluginById("id");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void GivenThatPluginsExistsButNotWithTheGivenName_WhenGetPluginByIdIsCalled_ThenAnExceptionIsThrown()
+        {
+            var sut = new DefaultPluginManager();
+            var pluginLoaderStub = MockRepository.GenerateStub<IPluginLoader>();
+            pluginLoaderStub.Stub(x => x.LoadPlugins()).Return(new[] {new YarpPluginContainer(MockRepository.GenerateStub<IYarpPlugin>(), new YarpPluginMetadata("id","testName",
+                "author", "description", "version", "category"))});
+            sut.PluginLoader = pluginLoaderStub;
+
+            sut.LoadPlugins();
+            var plugin = sut.GetPluginById("name");
+        }
+
+        [TestMethod]
+        public void GivenThatPluginsExistsWithCorrectName_WhenGetPluginByIdIsCalled_ThenTheExistingPluginIsReturned()
+        {
+            var sut = new DefaultPluginManager();
+            var pluginLoaderStub = MockRepository.GenerateStub<IPluginLoader>();
+            YarpPluginContainer existingPlugin = new YarpPluginContainer(MockRepository.GenerateStub<IYarpPlugin>(), new YarpPluginMetadata("id", "testName",
+                "author", "description", "version", "category"));
+            pluginLoaderStub.Stub(x => x.LoadPlugins()).Return(new[] { existingPlugin });
+            sut.PluginLoader = pluginLoaderStub;
+
+            sut.LoadPlugins();
+            var plugin = sut.GetPluginById("id");
+
+            Assert.IsTrue(ArePluginMetadatasEqual(existingPlugin.Metadata, plugin.Metadata));
+        }
+
+        #endregion
+
+        private bool ArePluginMetadatasEqual(YarpPluginMetadata first, YarpPluginMetadata second)
+        {
+            return first.Id.Equals(second.Id) &&
+                first.Name.Equals(second.Name) &&
+                first.Author.Equals(second.Author) &&
+                first.Description.Equals(second.Description) &&
+                first.Version.Equals(second.Version) &&
+                first.Category.Equals(second.Category) &&
+                first.Website.Equals(second.Website);
+        }
     }
 }
-
