@@ -3,7 +3,7 @@
 namespace Yarp.Plugins.Reflection
 {
     /// <summary>
-    /// Contains a method to create instances from given types.
+    /// Contains logic to create instances from given types.
     /// </summary>
     public interface IYarpActivator
     {

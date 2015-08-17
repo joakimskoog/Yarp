@@ -21,14 +21,11 @@ namespace Yarp.Plugins
             {
                 lock (_mutex)
                 {
-                    if (_default == null)
-                    {
-                        _default = new ReflectionBasedPluginLoader(new ReflectionBasedPluginLoaderSettings(
-                            "plugins", "*YarpPlugin.dll", "*.YarpMetadata"), new JsonSerializer(), new ActivatorWrapper(), new AssemblyWrapper(),
-                            new DirectoryWrapper(), new FileWrapper());
-                    }
-
-                    return _default;
+                    return _default ??
+                           (_default = new ReflectionBasedPluginLoader(new ReflectionBasedPluginLoaderSettings(
+                               "plugins", "*YarpPlugin.dll", "*.YarpMetadata"), new JsonSerializer(),
+                               new ActivatorWrapper(), new AssemblyWrapper(),
+                               new DirectoryWrapper(), new FileWrapper()));
                 }
             }
         }
@@ -92,6 +89,7 @@ namespace Yarp.Plugins
         {
             var fullFilePath = Path.GetFullPath(filePath);
             var fileContents = _file.ReadAllText(fullFilePath, Encoding.UTF8);
+
             return _serializer.Deserialize<YarpPluginMetadata>(fileContents);
         }
     }
