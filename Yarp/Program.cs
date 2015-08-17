@@ -5,7 +5,7 @@ namespace Yarp
 {
     class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Welcome to YARP (Yet Another Retriever of Passwords) - by Joakim Skoog");
 
