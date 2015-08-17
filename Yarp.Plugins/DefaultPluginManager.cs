@@ -11,10 +11,10 @@ namespace Yarp.Plugins
         private IPluginLoader _pluginLoader;
         public IPluginLoader PluginLoader
         {
-            get { return _pluginLoader ?? (_pluginLoader = new ReflectionBasedPluginLoader(new ReflectionBasedPluginLoaderSettings("none", "none", "none"))); }
+            get { return _pluginLoader ?? (_pluginLoader = ReflectionBasedPluginLoader.Default); }
             set
             {
-                if (value == null) throw new ArgumentNullException("value");
+                if(value == null) throw new ArgumentNullException("value");
                 _pluginLoader = value;
             }
         }

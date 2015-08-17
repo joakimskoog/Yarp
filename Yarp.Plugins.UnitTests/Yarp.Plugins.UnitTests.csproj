@@ -56,8 +56,13 @@
   <ItemGroup>
     <Compile Include="DefaultPluginManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionBasedPluginLoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Yarp.IO\Yarp.IO.csproj">
+      <Project>{85f15f67-3e0d-48fe-a625-423bf31deb6a}</Project>
+      <Name>Yarp.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yarp.Plugins.Api\Yarp.Plugins.Api.csproj">
       <Project>{551ed1a4-58fa-4b2d-ac76-1745da256c01}</Project>
       <Name>Yarp.Plugins.Api</Name>

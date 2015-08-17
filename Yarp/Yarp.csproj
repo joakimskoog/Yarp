@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IO\ConsoleLogger.cs" />
-    <Compile Include="IO\FileLogger.cs" />
-    <Compile Include="IO\IRetrievedPasswordsLogger.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\IRetrievedPasswordsLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +52,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Yarp.IO\Yarp.IO.csproj">
+      <Project>{85f15f67-3e0d-48fe-a625-423bf31deb6a}</Project>
+      <Name>Yarp.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yarp.Plugins.Api\Yarp.Plugins.Api.csproj">
       <Project>{551ed1a4-58fa-4b2d-ac76-1745da256c01}</Project>
       <Name>Yarp.Plugins.Api</Name>
@@ -60,6 +64,9 @@
       <Project>{ada85d8d-7f5d-4ae9-a9c8-1fea52d5d344}</Project>
       <Name>Yarp.Plugins</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

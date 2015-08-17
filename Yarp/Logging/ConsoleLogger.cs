@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Yarp.Plugins.Api;
 
-namespace Yarp.IO
+namespace Yarp.Logging
 {
     public class ConsoleLogger : IRetrievedPasswordsLogger
     {
