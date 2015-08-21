@@ -14,12 +14,12 @@ namespace Yarp.Plugins.Api
 
         public YarpPluginMetadata(string id, string name, string author, string description, string version, string category, string website = "")
         {
-            if (id == null) throw new ArgumentNullException("id");
-            if (name == null) throw new ArgumentNullException("name");
-            if (author == null) throw new ArgumentNullException("author");
-            if (description == null) throw new ArgumentNullException("description");
-            if (category == null) throw new ArgumentNullException("category");
-            if (website == null) throw new ArgumentNullException("website");
+            if (id == null) throw new ArgumentNullException(nameof(id));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (author == null) throw new ArgumentNullException(nameof(author));
+            if (description == null) throw new ArgumentNullException(nameof(description));
+            if (category == null) throw new ArgumentNullException(nameof(category));
+            if (website == null) throw new ArgumentNullException(nameof(website));
             Id = id;
             Name = name;
             Author = author;

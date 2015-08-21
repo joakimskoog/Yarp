@@ -10,8 +10,8 @@ namespace Yarp
 {
     class Program
     {
-        private static readonly IPluginManager _pluginManager = new DefaultPluginManager();
-        private static readonly IRetrievedPasswordsLogger _logger = new ConsoleLogger(); //We'll let users choose the logger later
+        private static readonly IPluginManager PluginManager = new DefaultPluginManager();
+        private static readonly IRetrievedPasswordsLogger Logger = new ConsoleLogger(); //We'll let users choose the logger later
 
         static void Main(string[] args)
         {
@@ -46,7 +46,7 @@ namespace Yarp
             Console.WriteLine("Retrieving passwords...");
             var retrievedPasswords = RetrievePasswords(retrievers);
            
-            _logger.Log(retrievedPasswords);
+            Logger.Log(retrievedPasswords);
         }
 
         private static IEnumerable<PasswordRetrievalResult> RetrievePasswords(string retrievers)
@@ -66,7 +66,7 @@ namespace Yarp
         {
             if (string.Equals("all", retrievers, StringComparison.InvariantCultureIgnoreCase))
             {
-                return _pluginManager.GetAllPlugins();
+                return PluginManager.GetAllPlugins();
             }
 
             return Enumerable.Empty<YarpPluginContainer>(); //We only support the 'all' option at the moment.

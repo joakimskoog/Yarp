@@ -13,13 +13,13 @@ namespace Yarp.Plugins
 {
     public class ReflectionBasedPluginLoader : IPluginLoader
     {
-        private static readonly object _mutex = new object();
+        private static readonly object Mutex = new object();
         private static ReflectionBasedPluginLoader _default;
         public static ReflectionBasedPluginLoader Default
         {
             get
             {
-                lock (_mutex)
+                lock (Mutex)
                 {
                     return _default ??
                            (_default = new ReflectionBasedPluginLoader(new ReflectionBasedPluginLoaderSettings(
@@ -40,12 +40,12 @@ namespace Yarp.Plugins
         public ReflectionBasedPluginLoader(ReflectionBasedPluginLoaderSettings settings, IYarpSerializer serializer, IYarpActivator activator,
             IAssemblyLoader assemblyLoader, DirectoryBase directory, FileBase file)
         {
-            if (settings == null) throw new ArgumentNullException("settings");
-            if (serializer == null) throw new ArgumentNullException("serializer");
-            if (activator == null) throw new ArgumentNullException("activator");
-            if (assemblyLoader == null) throw new ArgumentNullException("assemblyLoader");
-            if (directory == null) throw new ArgumentNullException("directory");
-            if (file == null) throw new ArgumentNullException("file");
+            if (settings == null) throw new ArgumentNullException(nameof(settings));
+            if (serializer == null) throw new ArgumentNullException(nameof(serializer));
+            if (activator == null) throw new ArgumentNullException(nameof(activator));
+            if (assemblyLoader == null) throw new ArgumentNullException(nameof(assemblyLoader));
+            if (directory == null) throw new ArgumentNullException(nameof(directory));
+            if (file == null) throw new ArgumentNullException(nameof(file));
             _settings = settings;
             _serializer = serializer;
             _activator = activator;

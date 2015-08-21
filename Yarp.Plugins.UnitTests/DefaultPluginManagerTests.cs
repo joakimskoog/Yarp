@@ -54,6 +54,7 @@ namespace Yarp.Plugins.UnitTests
             sut.PluginLoader = pluginLoaderStub;
 
             sut.LoadPlugins();
+            // ReSharper disable once UnusedVariable
             var plugin = sut.GetPluginByName("name");
         }
 
@@ -68,6 +69,7 @@ namespace Yarp.Plugins.UnitTests
             sut.PluginLoader = pluginLoaderStub;
 
             sut.LoadPlugins();
+            // ReSharper disable once UnusedVariable
             var plugin = sut.GetPluginByName("name");
         }
 
@@ -101,6 +103,7 @@ namespace Yarp.Plugins.UnitTests
             sut.PluginLoader = pluginLoaderStub;
 
             sut.LoadPlugins();
+            // ReSharper disable once UnusedVariable
             var plugin = sut.GetPluginById("id");
         }
 
@@ -115,6 +118,7 @@ namespace Yarp.Plugins.UnitTests
             sut.PluginLoader = pluginLoaderStub;
 
             sut.LoadPlugins();
+            // ReSharper disable once UnusedVariable
             var plugin = sut.GetPluginById("faultyId");
         }
 

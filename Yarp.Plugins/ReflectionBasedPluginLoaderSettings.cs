@@ -27,9 +27,9 @@ namespace Yarp.Plugins
         /// <param name="pluginMetadataSearchPattern">The search pattern that will beu sed to find metadata for plugins</param>
         public ReflectionBasedPluginLoaderSettings(string pluginsPath, string pluginFileSearchPattern, string pluginMetadataSearchPattern)
         {
-            if (string.IsNullOrEmpty(pluginsPath)) throw new ArgumentException("PluginsPath can't be empty", "pluginsPath");
-            if (string.IsNullOrEmpty(pluginFileSearchPattern)) throw new ArgumentException("PluginFileSearchPattern can't be empty", "pluginFileSearchPattern");
-            if (string.IsNullOrEmpty(pluginMetadataSearchPattern)) throw new ArgumentException("PluginMetadataSearchPattern can't be empty", "pluginMetadataSearchPattern");
+            if (string.IsNullOrEmpty(pluginsPath)) throw new ArgumentException("PluginsPath can't be empty", nameof(pluginsPath));
+            if (string.IsNullOrEmpty(pluginFileSearchPattern)) throw new ArgumentException("PluginFileSearchPattern can't be empty", nameof(pluginFileSearchPattern));
+            if (string.IsNullOrEmpty(pluginMetadataSearchPattern)) throw new ArgumentException("PluginMetadataSearchPattern can't be empty", nameof(pluginMetadataSearchPattern));
             PluginsPath = pluginsPath;
             PluginFileSearchPattern = pluginFileSearchPattern;
             PluginMetadataSearchPattern = pluginMetadataSearchPattern;

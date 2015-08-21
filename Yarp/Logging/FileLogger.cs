@@ -12,8 +12,8 @@ namespace Yarp.Logging
 
         public FileLogger(string logPath, FileBase file)
         {
-            if (logPath == null) throw new ArgumentNullException("logPath");
-            if (file == null) throw new ArgumentNullException("file");
+            if (logPath == null) throw new ArgumentNullException(nameof(logPath));
+            if (file == null) throw new ArgumentNullException(nameof(file));
             _logPath = logPath;
             _file = file;
         }

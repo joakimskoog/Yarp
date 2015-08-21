@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Yarp.Plugins.Api;
 
 namespace Yarp.Plugins
 {

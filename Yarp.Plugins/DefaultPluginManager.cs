@@ -14,7 +14,7 @@ namespace Yarp.Plugins
             get { return _pluginLoader ?? (_pluginLoader = ReflectionBasedPluginLoader.Default); }
             set
             {
-                if(value == null) throw new ArgumentNullException("value");
+                if(value == null) throw new ArgumentNullException(nameof(value));
                 _pluginLoader = value;
             }
         }
@@ -40,7 +40,7 @@ namespace Yarp.Plugins
 
             if (plugin == null)
             {
-                throw new Exception(string.Format("No plugin with the given name '{0}' exists.", name));
+                throw new Exception($"No plugin with the given name '{name}' exists.");
             }
 
             return plugin;
@@ -52,7 +52,7 @@ namespace Yarp.Plugins
 
             if (plugin == null)
             {
-                throw new Exception(string.Format("No plugin with the given id '{0}' exists.", id));
+                throw new Exception($"No plugin with the given '{id}' exists.");
             }
 
             return plugin;
