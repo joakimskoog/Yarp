@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using Yarp.IO;
-using Yarp.Plugins.Api;
 
 namespace Yarp.Logging
 {
@@ -12,7 +9,7 @@ namespace Yarp.Logging
 
         public ArgumentsLoggerFactory(FileBase file)
         {
-            if (file == null) throw new ArgumentNullException("file");
+            if (file == null) throw new ArgumentNullException(nameof(file));
             _file = file;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Yarp.Plugins.Api;
 
 namespace Yarp.Logging
@@ -14,6 +15,8 @@ namespace Yarp.Logging
 
         public void Log(IEnumerable<PasswordRetrievalResult> retrievedPasswords)
         {
+            Console.WriteLine("Retrieved passwords:");
+
             foreach (var retrievedPass in retrievedPasswords)
             {
                 Console.WriteLine(StatusLine, retrievedPass.Status);
