@@ -13,8 +13,8 @@ namespace Yarp.Plugins
 
         public YarpPluginContainer(IYarpPlugin plugin, YarpPluginMetadata metadata)
         {
-            if (plugin == null) throw new ArgumentNullException("plugin");
-            if (metadata == null) throw new ArgumentNullException("metadata");
+            if (plugin == null) throw new ArgumentNullException(nameof(plugin));
+            if (metadata == null) throw new ArgumentNullException(nameof(metadata));
             Plugin = plugin;
             Metadata = metadata;
         }
